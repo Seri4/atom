@@ -16,5 +16,5 @@ public class TeamDto {
     private String externalId;
     private String name;
     private List<PlayerDto> players;
-
+    private String country;
 }
