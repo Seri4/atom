@@ -29,4 +29,10 @@ public class Match {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "stadium_id", referencedColumnName = "id")
     private Stadium stadium;
+
+    @Column
+    private Byte score1;
+
+    @Column
+    private Byte score2;
 }

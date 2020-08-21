@@ -1,5 +1,6 @@
 package com.existential.atom.dto;
 
+import jdk.internal.net.http.common.Pair;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.List;
 public class MatchDto {
     private Long id;
     private String externalId;
-    private List<TeamDto> matches;
-    private List<StadiumDto> stadium;
+    private List<TeamDto> teams;
+    private Byte score1;
+    private Byte score2;
 }
