@@ -31,4 +31,8 @@ public class Team {
 
     @Column
     private String country;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "match_id", referencedColumnName = "id")
+    private Match match;
 }
