@@ -14,6 +14,5 @@ import java.util.List;
 public class MatchDto {
     private Long id;
     private String externalId;
-    private List<TeamDto> matches;
-    private List<StadiumDto> stadium;
+    private List<TeamDto> teams;
 }
