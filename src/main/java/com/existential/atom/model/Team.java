@@ -1,5 +1,6 @@
 package com.existential.atom.model;
 
+import com.existential.atom.dto.TeamDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Data
@@ -35,4 +37,15 @@ public class Team {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "match_id", referencedColumnName = "id")
     private Match match;
+
+    public Team(TeamDto item) {
+        this.id = item.getId();
+        this.externalId = item.getExternalId();
+        this.name = item.getName();
+        this.players = item.getPlayers().stream()
+                .map(Player::new)
+                .collect(Collectors.toList());
+        this.country = item.getCountry();
+        this.match = new Match(item.getMatchDto());
+    }
 }

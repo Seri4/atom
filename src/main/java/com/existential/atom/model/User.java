@@ -1,5 +1,6 @@
 package com.existential.atom.model;
 
+import com.existential.atom.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,4 +38,12 @@ public class User {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roleList;
+
+    public User(UserDto item) {
+        this.id = item.getId();
+        this.externalId = item.getExternalId();
+        this.name = item.getName();
+        this.email = item.getEmail();
+        this.password = item.getPassword();
+    }
 }
