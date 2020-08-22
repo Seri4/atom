@@ -1,6 +1,7 @@
 package com.existential.atom.model;
 
 import com.existential.atom.dto.TeamDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,8 +35,9 @@ public class Team {
     @Column
     private String country;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "match_id", referencedColumnName = "id")
+    @JsonBackReference
     private Match match;
 
     public Team(TeamDto item) {

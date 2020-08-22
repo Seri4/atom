@@ -39,8 +39,5 @@ public class Stadium {
         this.externalId = item.getExternalId();
         this.name = item.getName();
         this.capacity = item.getCapacity();
-        this.matches = item.getMatches().stream()
-                .map(Match::new)
-                .collect(Collectors.toList());
     }
 }

@@ -1,6 +1,7 @@
 package com.existential.atom.model;
 
 import com.existential.atom.dto.PlayerDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class Player {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "team_id", referencedColumnName = "id")
+    @JsonBackReference
     private Team team;
 
     @Enumerated(EnumType.STRING)

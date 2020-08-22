@@ -1,6 +1,7 @@
 package com.existential.atom.model;
 
 import com.existential.atom.dto.MatchDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Match {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "stadium_id", referencedColumnName = "id")
+    @JsonBackReference
     private Stadium stadium;
 
     @Column
